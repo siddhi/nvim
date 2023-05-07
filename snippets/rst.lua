@@ -47,7 +47,7 @@ local code = s({
 }, {
     t(".. code-block:: "),
     i(1, "lang"),
-    t({"", "   "}),
+    t({"", "   ", "", "   "}),
     i(2, "code"),
     i(0)
 })
@@ -58,7 +58,7 @@ local raw = s({
     dscr = "Raw"
 }, {
     t(".. raw:: html"),
-    t({"", "   "}),
+    t({"", "   ", "", "   "}),
     i(1, "code"),
     i(0)
 })
