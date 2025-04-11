@@ -14,6 +14,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+vim.g.loaded_python3_provider = 0
+
 local opt = vim.opt
 
 opt.encoding = "utf-8"
