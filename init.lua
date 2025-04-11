@@ -91,7 +91,8 @@ vim.keymap.set('n', '<C-g>', "3<C-w>_")
 
 require("lazy").setup({
   -- theme
-  { "catppuccin/nvim", lazy = true, name = "catppuccin", priority=1000 },
+ -- { "catppuccin/nvim", lazy = true, name = "catppuccin", priority=1000 },
+  { "sainnhe/everforest", lazy = false, name = "everforest", priority=1000 },
 
   -- devicons
   { "nvim-tree/nvim-web-devicons", lazy = true },
@@ -311,7 +312,8 @@ require("lazy").setup({
 })
 
 -- set colour scheme
-vim.cmd.colorscheme "catppuccin-latte"
+vim.g.everforest_enable_italic = true
+vim.cmd.colorscheme "everforest"
 
 -- up / down with line wrap
 vim.keymap.set('n', '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
