@@ -18,7 +18,6 @@ local opt = vim.opt
 
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
-opt.termencoding = "utf-8"
 
 opt.clipboard = "unnamedplus"
 opt.completeopt = "menu,menuone,noselect"
@@ -225,6 +224,7 @@ require("lazy").setup({
       } 
     }
   },
+
   { "nvim-telescope/telescope-fzf-native.nvim", 
     build = "make",
     config = function()
@@ -233,7 +233,7 @@ require("lazy").setup({
   },
 
   -- linting + formatting
-  { "jose-elias-alvarez/null-ls.nvim",
+  { "nvimtools/none-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       local null_ls = require("null-ls")
@@ -268,7 +268,7 @@ require("lazy").setup({
   },
 
   -- bufferline
-  { "akinsho/bufferline.nvim", version = "v3.*",
+  { "akinsho/bufferline.nvim", version = "v4.*",
     dependencies = "nvim-tree/nvim-web-devicons",
     event = "VeryLazy",
     keys = {
@@ -300,15 +300,16 @@ require("lazy").setup({
 
   -- show indent guides on blank lines
   { "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
     opts = {
-      show_current_context = true,
     }
   },
 })
 
 -- set colour scheme
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "catppuccin-latte"
 
 -- up / down with line wrap
 vim.keymap.set('n', '<Up>', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -330,3 +331,4 @@ vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {desc = 'Goto Definiti
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = 'Code Action'})
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'Hover Documentation'})
 vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {desc = 'Format Code'})
+
