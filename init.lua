@@ -335,4 +335,6 @@ vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, {desc = 'Goto Definiti
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {desc = 'Code Action'})
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, {desc = 'Hover Documentation'})
 vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {desc = 'Format Code'})
-
+vim.diagnostic.config({
+  virtual_lines = { current_line=true },  -- Enables inline error/warning text
+})
